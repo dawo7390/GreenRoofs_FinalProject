@@ -6,19 +6,19 @@ var minValue;
 //step 1 create map
 function createMap(){
 
-    //create the map
-    map = L.map('map', {
-        center: [0, 0],
-        zoom: 2
-    });
+    var map = L.map('map').setView([38.57, -94.71], 4);
 
-    //add OSM base tilelayer
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
-    }).addTo(map);
+    L.tileLayer('http://{s}.tile.cloudmade.com/9067860284bc491e92d2342cc51d47d9/998/256/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Imagery © <a href="http://cloudmade.com">CloudMade</a>'}).addTo(map);
 
-    //call getData function
-    getData(map);
+    var featureStyle = {
+        "color": "#ff7800",
+        "weight": 5, 
+        "opacity": 0.2
+    };
+
+    var geojsonLayer = new L.GeoJSON.AJAX("NYCcounties.geojson");       
+    geojsonLayer.addTo(map);
+
 };
 
 function pointToLayer(feature, latlng, attributes){
@@ -53,11 +53,3 @@ function pointToLayer(feature, latlng, attributes){
     //return the circle marker to the L.geoJson pointToLayer option
     return layer;
 };
-
-function getData(map){
-    L.geoJSON(FeatureCollection).addTo(map);
-}
-
-
-
-$(document).ready(createMap);
