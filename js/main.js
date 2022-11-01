@@ -1,55 +1,43 @@
-//insert code here!
-var map;
-var dataStats = {};
-var minValue;
+var mymap = L.map('mapid').setView([51.505, -0.09], 13);
 
-//step 1 create map
-function createMap(){
+//add tile layer...replace project id and accessToken with your own
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'your.mapbox.project.id',
+    accessToken: 'your.mapbox.public.access.token'
+}).addTo(mymap);
 
-    var map = L.map('map').setView([38.57, -94.71], 4);
+var marker = L.marker([51.5, -0.09]).addTo(mymap);
 
-    L.tileLayer('http://{s}.tile.cloudmade.com/9067860284bc491e92d2342cc51d47d9/998/256/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Imagery © <a href="http://cloudmade.com">CloudMade</a>'}).addTo(map);
+var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,    radius: 500
+}).addTo(mymap);
 
-    var featureStyle = {
-        "color": "#ff7800",
-        "weight": 5, 
-        "opacity": 0.2
-    };
+var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+]).addTo(mymap);
 
-    var geojsonLayer = new L.GeoJSON.AJAX("NYCcounties.geojson");       
-    geojsonLayer.addTo(map);
+marker.bindPopup("<strong>Hello world!</strong><br />I am a popup.").openPopup();
+circle.bindPopup("I am a circle.");
+polygon.bindPopup("I am a polygon.");
 
-};
+var popup = L.popup()
+    .setLatLng([51.5, -0.09])
+    .setContent("I am a standalone popup.")
+    .openOn(mymap);
 
-function pointToLayer(feature, latlng, attributes){
-    //Determine which attribute to visualize with proportional symbols
-    var attribute = attributes[0];
-    console.log(attribute)
-    //create marker options
-    var options = {
-        fillColor: "#ff7800",
-        color: "#000",
-        weight: 1,
-        opacity: 1,
-        fillOpacity: 0.8
-    };
- 
-    //For each feature, determine its value for the selected attribute
-    var attValue = Number(feature.properties[attribute]);
+var popup = L.popup();
 
-    //Give each feature's circle marker a radius based on its attribute value
-    options.radius = calcPropRadius(attValue);
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
 
-    //create circle marker layer
-    var layer = L.circleMarker(latlng, options);
-
-    //build popup content string
-    var popupContent = createPopupContent(feature.properties, attribute);
-    //bind the popup to the circle marker    
-
-
-
-    layer.bindPopup(popupContent, {  offset: new L.Point(0,-options.radius)    });
-    //return the circle marker to the L.geoJson pointToLayer option
-    return layer;
-};
+mymap.on('click', onMapClick);
