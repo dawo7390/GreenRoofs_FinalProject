@@ -55,22 +55,8 @@ function pointToLayer(feature, latlng, attributes){
 };
 
 function getData(map){
-    //load the data
-    $.ajax("data/NYCcounties.geojson", {
-        dataType: "geojson",
-        success: function(response){
-            var attributes = processData(response)
-            //minValue = calculateMinValue(response);            
-            //add symbols and UI elements
-            //calcStats(response); 
-            //createPropSymbols(response, attributes);
-            //createSequenceControls(attributes);
-            //createLegend(attributes)
-             
-
-        }
-    });
-};
+    L.geoJSON(FeatureCollection).addTo(map);
+}
 
 
 
