@@ -1,43 +1,37 @@
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+var map;
 
-//add tile layer...replace project id and accessToken with your own
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'your.mapbox.project.id',
-    accessToken: 'your.mapbox.public.access.token'
-}).addTo(mymap);
+//function to instantiate the Leaflet map
+function createMap(){
+    
+    //create the map
+    map = L.map('map', {
+        center: [0, 0],
+        zoom: 1
+    });
 
-var marker = L.marker([51.5, -0.09]).addTo(mymap);
+    //add OSM base tilelayer
+    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    }).addTo(map);
 
-var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#f03',
-    fillOpacity: 0.5,    radius: 500
-}).addTo(mymap);
+    //call getData function
+    getData(map);
+};
 
-var polygon = L.polygon([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
-]).addTo(mymap);
+//function to retrieve the data and place it on the map
+function getData(map){
+    //load the data, then map
+    $.getJSON("data/MegaCities.geojson", function(response){
 
-marker.bindPopup("<strong>Hello world!</strong><br />I am a popup.").openPopup();
-circle.bindPopup("I am a circle.");
-polygon.bindPopup("I am a polygon.");
+            //create a Leaflet GeoJSON layer and add it to the map
+            L.geoJson(response, {
+                //use filter function to only show cities with 2015 populations greater than 20 million
+                filter: function(feature, layer) {
+                    return feature.properties.Pop_2015 > 20;
+                }
+            }).addTo(map);
+    }); 
+};
 
-var popup = L.popup()
-    .setLatLng([51.5, -0.09])
-    .setContent("I am a standalone popup.")
-    .openOn(mymap);
 
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
-
-mymap.on('click', onMapClick);
+$(document).ready(createMap);

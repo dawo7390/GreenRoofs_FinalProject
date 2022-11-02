@@ -6,35 +6,20 @@
             <title></title>
 
         <!--put your external stylesheet links here-->
+        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
-        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
-        <script src="NYCcounties.geojson" type="text/javascript"></script>
-        <script src="/js/leaflet-0.7.2/leaflet.ajax.min.js"></script>
         <!--[if IE<9]>
             <link rel="stylesheet" href="css/style.ie.css">
         <![endif]-->
-        <style>
-            html, body, #map {
-                height: 100%;
-            }
-            body {
-                padding: 0;
-                margin: 0;
-            }
-        </style>
-         <!--you can also place internal styles here;
-             place these within <style> tags-->
-        
+
     </head>
 
     <body>
-        <!--put your initial page content here-->
-
-        <!--you can also use this space for internal scripts;
-        place these within <script> tags-->
+       <div id="map"></div>
 
         <!--put your external script links here-->
-        <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+        <script type="text/javascript" src="js/example2.6.js"></script>
     </body>
-</html>
+</html> 
