@@ -7,20 +7,54 @@
         <link rel="stylesheet" href="lib/leaflet/leaflet.css">
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
         <link rel="stylesheet" href="css/style.css">
+        
     </head>
 
     <body>
-        <!-- <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/dawo7390/cl9zygbct000114ofk5m565pk.html?title=false&access_token=pk.eyJ1IjoiZGF3bzczOTAiLCJhIjoiY2w3cXIweXJjMDdpNzQxbzB5Zjdhajc4YiJ9.qPWM7J5wt_NNdCy-NxRuJw&zoomwheel=false#11/40.679/-74.0066" title="Streets-copy" style="border:none;"></iframe> -->
-        <div id="mapID"></div>
-        <div id="barChartID"></div>
-        <div id="matrixID"></div>
-        <div id="popupTextID"></div>
-        <!--put your external script links here-->
         <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
         <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+        <script src="https://d3js.org/d3.v3.min.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+
+        <svg>
+            <!-- Container SVG -->
+            <svg> 
+                <!-- Map SVG -->
+                <div id="mapID">
+                    <script type="text/javascript" src="js/map.js"></script>
+
+                </div>
+
+            </svg>
+
+            <svg>
+                <!-- Bar Graph SVG -->
+                <div id="barChartID">
+                    <script type="text/javascript" src="js/barChart.js"></script>
+                </div>
+
+            </svg>
+
+            <svg>
+                <!-- Matrix SVG -->
+                <div id="matrixID">
+                    <script type="text/javascript" src="js/matrix.js"></script>
+                </div>
+            </svg>
+
+            <svg>
+                <!-- Popup svg -->
+                <div id="popupTextID"></div>
+
+            </svg>
+        </svg>
+
+        <!-- <iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/dawo7390/cl9zygbct000114ofk5m565pk.html?title=false&access_token=pk.eyJ1IjoiZGF3bzczOTAiLCJhIjoiY2w3cXIweXJjMDdpNzQxbzB5Zjdhajc4YiJ9.qPWM7J5wt_NNdCy-NxRuJw&zoomwheel=false#11/40.679/-74.0066" title="Streets-copy" style="border:none;"></iframe> -->
+    
+        <!--put your external script links here-->
+
         <!-- <script src="https://d3js.org/d3.v6.js"></script> -->
-        <script type="text/javascript" src="js/main.js"></script>
+
         
 
 

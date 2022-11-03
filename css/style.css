@@ -9,10 +9,10 @@ body{
 } 
 
 #mapID{
-    margin: 50px;
-    padding: 50px;
     height: 600px;
     width: 450px;
+    margin: 50px;
+    padding: 50px;
   }
 
   #barChartID
@@ -26,4 +26,32 @@ body{
   #popupTextID
   {
 
+  }
+
+  .background {
+    fill: #eee;
+    pointer-events: all;
+  }
+  
+  .map-layer {
+    fill: #fff;
+    stroke: #aaa;
+  }
+  
+  .effect-layer{
+    pointer-events:none;
+  }
+  
+  text{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+  }
+  
+  text.big-text{
+    font-size: 30px;
+    font-weight: 400;
+  }
+  
+  .effect-layer text, text.dummy-text{
+    font-size: 12px;
   }
