@@ -6,6 +6,7 @@ var NYCmap = L.tileLayer('https://api.mapbox.com/styles/v1/dawo7390/cl9zygbct000
   maxZoom: 18,
   attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
 });
+
 //Highlight Boroughs
 NYCmap.addTo(map)
 $.getJSON("data/nyc.geojson", function(response){ //create a Leaflet GeoJSON layer and add it to the map
@@ -18,7 +19,10 @@ $.get('data/GreenRoofData2016_20180917.csv', function(csvString) {
     for (var i in data) {
       var row = data[i];
       var marker = L.marker([row.ycoord, row.xcoord], {
-        opacity: 1
+        opacity: 1,
+        icon: L.icon({
+            iconUrl: 'img/images/marker-icon.png',
+            iconSize: [25, 38]})
       }).bindPopup(row.address);
       marker.addTo(map);
     }
