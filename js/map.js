@@ -18,13 +18,20 @@ $.get('data/GreenRoofData2016_20180917.csv', function(csvString) {
     var data = Papa.parse(csvString, {header: true, dynamicTyping: true}).data;  // Use PapaParse to convert string to array of objects
     for (var i in data) {
       var row = data[i];
+      var mystring = "Address: "+row.address + '\r\n'+ "Zone: "+ row.zonedist1 +'\r\n' +"Owner Type: "+row.ownertype+ '\r\n';
       var marker = L.marker([row.ycoord, row.xcoord], {
         opacity: 1,
         icon: L.icon({
             iconUrl: 'img/images/marker-icon.png',
             iconSize: [25, 38]})
-      }).bindPopup(row.address);
+      }).bindPopup(mystring);
       marker.addTo(map);
     }
+});
+var clusters = L.markerClusterGroup();  //CLUSTERS ARE IN LAB 3
+clusters.addLayer(data);
+map.addLayer(clusters);
 
-  });
+
+
+   // address + zone + socioeconomic status
