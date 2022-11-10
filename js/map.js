@@ -5,9 +5,11 @@ var mapFunction = {}; //declares fucntion holder
 mapFunction.addPopups = function (feature, layer) {
   if (feature.properties && feature.properties.address) {
     layer.bindPopup("<b>Address: </b>" + feature.properties.address+ 
-                    "<br><b>Cost Estimate: </b> $"+feature.properties.COST_ESTIMATE+"</br>"+ //TODO figure out why toFixed(2) does not work to round
+                    "<br><b>Cost Estimate: </b> $"+parseInt(feature.properties.COST_ESTIMATE)+"</br>"+ 
                     "<b>Income Bracket: </b> "+ feature.properties.MEDHINC_CAT+ 
-                    "<br><b>Percentage Green Roof: </b>"+ ((((feature.properties.gr_area/feature.properties.bldg_area)* 100) / 100).toFixed(2)*100)+"%"+"</br)")
+                    "<br><b>Percentage Green Roof Cover: </b>"+ ((((feature.properties.gr_area/feature.properties.bldg_area)* 100) / 100).toFixed(2)*100)+"%"+"</br>"+
+                    "<b>Total Green Roof Area: </b>"+parseInt(feature.properties.gr_area)+" sq/ft"+
+                    "<br><b> Roof Height: </b>"+parseInt(feature.properties.heightroof)+" ft"+"</br>")
   }
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
@@ -27,7 +29,7 @@ window.onload=function(){
     //CREATE BASEMAP
     let map = L.map('map').setView([40.69, -73.97], 10);
     var NYCmap = L.tileLayer('https://api.mapbox.com/styles/v1/dawo7390/cl9zygbct000114ofk5m565pk/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGF3bzczOTAiLCJhIjoiY2w3cXIweXJjMDdpNzQxbzB5Zjdhajc4YiJ9.qPWM7J5wt_NNdCy-NxRuJw', {
-        maxZoom: 18,
+        maxZoom: 18, minZoom: 10,
         attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
         }).addTo(map);
     //CREATE BUROUGH HIGHLIGHTS
