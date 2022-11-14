@@ -1,8 +1,44 @@
 // //LEAFLET MAP
 "use strict";
+//FUNCTIONS TO HELP WITH HIGHLIGHTING OF BUROUGHS
+function style_before() { //sets style while not hovered over
+    return {
+        color: "green",
+        weight: 2,
+        opacity: 0.1,
+        stroke: 5,
+        fillOpacity: 0.15
+    };
+}
+function style_after() { //sets style wile hovered over
+    return {
+        color: "green",
+        weight: 5,
+        stroke: 5,
+        fillOpacity: 0.6
+    };
+}
+function highlightFeature(e) { // set style while hover over
+    var layer = e.target;
+    layer.setStyle(style_after());
+}
+function resetHighlight(e) { // reset to default style while off
+    var layer = e.target
+    layer.setStyle(style_before())
+}
+// function zoomToFeature(e) {      //unused
+//     map.fitBounds(e.target.getBounds());
+// }
+function highlightBuroughs(feature, layer) { //controls all highlighting functions
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        // click: zoomToFeature
+    });
+}
 var mapFunction = {}; //declares fucntion holder
 //MAKE POPUPS AND ADD TEXT
-mapFunction.addPopups = function (feature, layer) {
+mapFunction.addPopups = function (feature, layer) { //creates popups with site info
   if (feature.properties && feature.properties.address) {
     layer.bindPopup("<b>Address: </b>" + feature.properties.address+ 
                     "<br><b>Cost Estimate: </b> $"+parseInt(feature.properties.COST_ESTIMATE)+"</br>"+ 
@@ -13,7 +49,7 @@ mapFunction.addPopups = function (feature, layer) {
   }
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
-mapFunction.pointToCircle =function (feature, latlng) {
+mapFunction.pointToCircle = function (feature, latlng) { //makes the maerkers little green circles
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "green",
@@ -32,15 +68,19 @@ window.onload=function(){
         maxZoom: 18, minZoom: 10,
         attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
         }).addTo(map);
-    //CREATE BUROUGH HIGHLIGHTS
-    $.getJSON("data/nyc.geojson", function(response){ 
-        L.geoJson(response).addTo(map);
-    });
+    //CREATE BUROUGH HIGHLIGHTS ON MAP
+    var nyc
+    nyc = new L.geoJson(nycjson,{
+        onEachFeature: highlightBuroughs,
+        style: style_before
+    }).addTo(map);;
+    
     //READ DATA FOR MARKERS
     var greenLayerGroup = L.geoJSON(mygeojson, {
         onEachFeature: mapFunction.addPopups,
         pointToLayer: mapFunction.pointToCircle
     });
+
     //CREATE CLUSTERING EFFECT
     var clusters = L.markerClusterGroup();
     clusters.addLayer(greenLayerGroup);
