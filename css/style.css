@@ -8,25 +8,23 @@ body{
     width: 100%;
 } 
 
-#mapID{
-    height: 600px;
-    width: 450px;
-    margin: 50px;
-    padding: 50px;
-  }
-
-  #barChartID
-  {
-
-  }
-  #matrixID
-  {
-
-  }
-  #popupTextID
-  {
-
-  }
+.map {
+    position: absolute;
+    width: 50%;
+    height: 90%;
+}
+.barChart{
+    position: absolute;
+        top: 10px; left: 500px;
+    width: 50%;
+    height: 45%;
+}
+.matrix{
+    position: absolute;
+        top: 400px; left: 500px;
+    width: 50%;
+    height: 45%;
+}
 
   .background {
     fill: #eee;

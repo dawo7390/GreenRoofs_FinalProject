@@ -36,7 +36,7 @@ function highlightBuroughs(feature, layer) { //controls all highlighting functio
         // click: zoomToFeature
     });
 }
-var mapFunction = {}; //declares fucntion holder
+var mapFunction = {}; //declares function holder
 //MAKE POPUPS AND ADD TEXT
 mapFunction.addPopups = function (feature, layer) { //creates popups with site info
   if (feature.properties && feature.properties.address) {
