@@ -15,13 +15,13 @@ body{
 }
 .barChart{
     position: absolute;
-        top: 10px; left: 500px;
+        top: 10px; left: 100px;
     width: 50%;
     height: 45%;
 }
 .matrix{
     position: absolute;
-        top: 400px; left: 500px;
+        top: 500px; left: 700px;
     width: 50%;
     height: 45%;
 }

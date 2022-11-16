@@ -76,7 +76,7 @@ window.onload=function(){
     }).addTo(map);;
     
     //READ DATA FOR MARKERS
-    var greenLayerGroup = L.geoJSON(mygeojson, {
+    var greenLayerGroup = L.geoJSON(greenroofgeojson, {
         onEachFeature: mapFunction.addPopups,
         pointToLayer: mapFunction.pointToCircle
     });
