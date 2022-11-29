@@ -13,9 +13,15 @@
     </head>
 
     <body>
+        <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script> 
+        <header>
+            <img src="img/greenroofbanner.png" alt = "Title Banner"
+                width= 1410px
+                height = 70px >
+        </header>
         <div id="map" class="map" ></div>
         <div id="barChart" class="barChart"></div>
-        <div id="matrix" class="matrix"></div>
+        <div id="matrix" class="matrix"> </div>
         <div id="background"></div>
         
         <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
@@ -31,11 +37,15 @@
         <script type="text/javascript" src="data/greenroofsFinal.js"></script>
         <script type="text/javascript" src="data/nyc.js"></script>
         <script type="text/javascript" src="js/map.js"></script>
-        <script type="text/javascript" src="js/matrix.js"></script>
         <script type="text/javascript" src="js/barChart.js"></script>
-        
-
-        <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script> 
+        <script type="text/javascript" src="js/matrix.js" ></script>
+        <script>
+            Matrix({
+                container: "#matrix.matrix",
+                start_color: "#fb6a4a",
+                end_color: "#a50f15",
+            });
+            </script>
     </body>
         
 </html> 

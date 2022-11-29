@@ -1,4 +1,4 @@
-﻿,lowIncome,mediumIncome,highIncome,Residential,Commercial,Public,Industrial,averageCost,averageSavings,carbonScore,GrArea,Cover
+﻿Borough,lowIncome,mediumIncome,highIncome,Residential,Commercial,Public,Industrial,averageCost,averageSavings,carbonScore,GrArea,Cover
 Bronx,78,4,0,59,6,6,11,117047,769,2675,3344,29.4
 Brooklyn,82,34,20,85,11,6,34,1413030,929,3230,4037,21.5
 Manhattan,79,99,287,158,249,4,54,117692,774,2690,3363,15.2
