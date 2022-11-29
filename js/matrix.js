@@ -51,7 +51,7 @@ function Matrix(options) {
   // Set some base properties.
   // Some come from an options object
   // pass when `Matrix` is called.
-  const margin = { top: 350, right: 300, bottom: 200, left: 850 },
+  const margin = { top: 0, right: 0, bottom: 150, left: 810 },
     width = 550,
     height = 230,
     container = options.container,
@@ -136,7 +136,7 @@ function Matrix(options) {
   cell
     .append("circle")
     .attr("r", 13)
-    //.attr("text")
+    // .attr("text", data) //this does not work
 
   row
     .selectAll(".cell")
