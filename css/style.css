@@ -9,18 +9,23 @@ body{
 } 
 header{
     height: 15%;
-    width: 80%;
+    width: 100%;
     fill: green;
     stroke: black;
 }
-button
-{
-    
-}
+/* .anybutton {
+    top:11%;
+    left:10%;
+    width:100px;
+    height:40px;
+    position: absolute;
+    z-index: 2;
+    background: orange; 
+    } */
 .map {
     position: absolute;
     width: 50%;
-    height: 95%;
+    height: 90%;
 }
 .barChart{
     position: absolute;

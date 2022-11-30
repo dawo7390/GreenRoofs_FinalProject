@@ -1,6 +1,9 @@
 // // //D3 MATRIX
 // Assign a 2d array of correlating values.
 // This each subarray will render as a row
+
+/*
+
 const data = [
   [78, 4, 0, 59, 6, 6, 11, 117047, 769, 2675, 3344, 29.4],
   [82, 34, 20, 85, 11, 6, 34, 1413030, 929, 3230, 4037, 21.5],
@@ -17,6 +20,19 @@ let colorData = [ //calculating by precentage of total
     [145,21,4,56,16,111,193,88,244,244,244,320]
 ];
 
+
+function colorDataConstruct(){
+    let colorData_ = [];
+    for (let i= 0; i < data.length; i++) {   
+        let total = 0;
+        for(let t=0; t<data[i].length; t++){
+            total = total+data[i][t]; 
+        }
+        for(let f=0; f<data[i].length; f++){
+            colorData_[i][f] = data[i][f]/total; 
+        }
+    }
+}
 
 //[   283,  141,  313,   320,  375,   18,  124, 1996354,  4762,  16563,  20703, 123.7 ]
 
@@ -208,126 +224,90 @@ function Matrix(options) {
     });
 }
 
+*/
+
+//WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
 
 
+// set the dimensions and margins of the graph
+var marginM = {topM: 0, rightM: 0, bottomM: 30, leftM: 875},
+  widthM = 1400 - marginM.leftM - marginM.rightM,
+  heightM = 300 - marginM.topM - marginM.bottomM;
 
+// append the svg object to the body of the page
+var svgMatrix = d3.select("#matrix")
+.append("svg")
+  .attr("width", widthM + marginM.leftM + marginM.rightM)
+  .attr("height", heightM + marginM.topM + marginM.bottomM)
+.append("g")
+  .attr("transform",
+        "translate(" + marginM.leftM + "," + marginM.topM + ")");
 
+// Labels of row and columns
+var myGroups = ["Bronx", "Brooklyn", "Manhattan", "Staten Island ", "Queens"]
+var myVars = ["Low Income", "Medium Income", "High Income", "Residential", "Commercial","Public", "Industrial", "Average Cost", "Average Savings $","Average Benefit $", "Average Area sq/ft", "Average Building Cover %",];
 
+// Build X scales and axis:
+var xM = d3.scaleBand()
+  .range([ 0, widthM ])
+  .domain(myGroups)
+  .padding(0.01);
+svgMatrix.append("g")
+  .attr("transform", "translate(0," + heightM + ")")
+  .call(d3.axisBottom(xM))
 
-// var collumnLength = 5
-// var rowLength = 12
-// var c1w = 130; c2w = 80; c3w = 40; r1h = 150; w = 600; h = w; pad = 20; left_pad = 50;
-// let traits = []
-// let bProps = []
-// let tab_data = d3.csv("data/GreenRoofMatrixData.csv", function(e){
-//     console.log(e)
-//     traits = [e[0].Borough, e[1].Borough, e[2].Borough, e[3].Borough, e[4].Borough]
-//     console.log(traits)
-// });
+// Build X scales and axis:
+var yM = d3.scaleBand()
+  .range([ heightM, 0 ])
+  .domain(myVars)
+  .padding(0.01);
+svgMatrix.append("g")
+  .call(d3.axisLeft(yM));
 
-//   var x_step = (w-pad-left_pad) / (collumnLength + 1),
-//       y_step = ((h-pad*2) - pad) / (rowLength + 1),
-//       x_range = traits.map((v,i) => c1w + c2w + c3w + left_pad + ((1+x_step) * i)), 
-//       y_range = candidates.map((v,i) => r1h + pad + ((1+y_step) * i)), 
-//       x = d3.scaleOrdinal().domain(rowLength).range(x_range),
-//       y = d3.scaleOrdinal().domain(collumnLength).range(y_range);
-  
-//     var max_r = 5,
-//           r = d3.scaleLinear()
-//               .domain([0, max_r])
-//               .range([0, 16]);
-    
-//     var onMouseOver = function(d) { //use same method as map.js 
-//       var name = classinate(d["name"]);
-//       var prop = classinate(d["prop"]);
-//       svg.selectAll(`text.label.${prop}`)
-//         .attr("display", "block");
-//       svg.selectAll(`text.label.${name}`)
-//         .attr("display", "block");   
-//     };
-  
-//     var onMouseOut = function(d) { //use same method as map.js 
-//       var name = classinate(d["name"]);
-//       var prop = classinate(d["prop"]);    
-//       svg.selectAll(`text.label.${prop}`)
-//         .attr("display", "none");
-//       svg.selectAll(`text.label.${name}`)
-//         .attr("display", "none");    
-//     };  
-    
-//     var circle_groups = svg.select("#matrix")
-//           .data(tab_data)
-//           .enter()
-//           .append("g")
-//           .attr("class", "cgroup")
-//           .on("mouseleave", onMouseOut )
-//           .on("mouseenter", onMouseOver);  
-    
-//     var circles = circle_groups.append("circle")
-//           .attr("class", d => "circle " + classinate(d["prop"]) + " " + classinate(d["name"]))
-//           .attr("cx", function (d) { return x(d["prop"]); })
-//           .attr("cy", function (d) { return y(d["name"]); });
-  
-    
-//     circle_groups.append("text")
-//             .attr("class", d => "label " + classinate(d["prop"]) + " " + classinate(d["name"]))  
-//             .attr("display", "none")
-//             .attr("text-anchor", "middle")
-//             .attr("font-size", "14px")
-//             .attr("stroke", "black")
-//             .attr("fill", "black")  
-//             .attr("stroke-width", "1px")
-//             .attr("x", function (d) { return x(d["prop"]); })
-//             .attr("y", function (d) { return y(d["name"]); })  
-//             .text(function (d) { return d["value"]});      
-    
-//      var trait_labels = svg.selectAll("text.trait")
-//         .data(traits)
-//         .enter()
-//         .append("text")
-//           .attr("class", "trait")
-//           .attr("x", d => x(d))
-//           .attr("y", r1h - 10)
-//           .attr("font-size", "14px")
-//           .attr("stroke", "black")
-//           .attr("fill", "black")  
-//           .attr("stroke-width", "1px")    
-//           .attr("opacity", d => opacity(d))
-//           .attr("transform", d => `rotate(-40 ${x(d)},${r1h-10})`)
-//           .text(d => d)
-//       svg.append("text")
-//           .attr("class", "trait")
-//           .attr("x", zx)
-//           .attr("y", r1h - 10)
-//           .attr("font-size", "14px")
-//           .attr("stroke", "black")
-//           .attr("fill", "black")  
-//           .attr("stroke-width", "1px")    
-//           .attr("opacity", d => opacity(d))
-//           .attr("transform", d => `rotate(-40 ${zx},${r1h-10})`)
-//           .text("Z-Score")
-//       svg.append("text")
-//           .attr("class", "trait")
-//           .attr("x", kx)
-//           .attr("y", r1h - 10)
-//           .attr("font-size", "14px")
-//           .attr("stroke", "black")
-//           .attr("fill", "black")  
-//           .attr("stroke-width", "1px")    
-//           .attr("opacity", d => opacity(d))
-//           .attr("transform", d => `rotate(-40 ${kx},${r1h-10})`)
-//           .text("Key SKill")   
-    
-//       var candidate_labels = svg.selectAll("text.candidate")
-//         .data(candidates)
-//         .enter()
-//         .append("text")
-//           .attr("class", "candidate")
-//           .attr("x", 10)
-//           .attr("y", d => y(d))
-//           .attr("font-size", "14px")
-//           .attr("stroke", "black")
-//           .attr("fill", "black")  
-//           .attr("stroke-width", "1px")    
-//           .text(d => d)
-  
+// Build color scale
+var myColorM = d3.scaleLinear()
+  .range(["white", "#69b3a2"])
+  .domain([1,1000])
+
+//Read the data
+d3.csv("data/GreenRoofMatrixData.csv", function(data) {
+
+  // create a tooltip
+  var tooltip = d3.select("#matrix")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    tooltip.style("opacity", 1)
+  }
+  var mousemove = function(d) {
+    tooltip
+      .html("The exact value of<br>this cell is: " + d.value)
+      .style("left", (d3.mouse(this)[0]+70) + "px")
+      .style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    tooltip.style("opacity", 0)
+  }
+
+  // add the squares
+  svgMatrix.selectAll()
+    .data(data, function(d) {return d.group+':'+d.variable;})
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return xM(d.group) })
+      .attr("y", function(d) { return yM(d.variable) })
+      .attr("width", xM.bandwidth() )
+      .attr("height", yM.bandwidth() )
+      .style("fill", function(d) { return myColorM(d.value)} )
+    .on("mouseover", mouseover)
+    .on("mousemove", mousemove)
+    .on("mouseleave", mouseleave)
+})

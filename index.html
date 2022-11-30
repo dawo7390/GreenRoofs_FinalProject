@@ -13,49 +13,33 @@
     </head>
 
     <body>
-        <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script> 
+        <!-- <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script>  -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+        <script type="text/javascript" src="lib/dist/leaflet.markercluster.js"></script>
         <header>
             <img src="img/greenroofbanner.png" alt = "Title Banner"
                 width= 1410px
                 height = 70px >
-                <button onclick="update('var1')">Variable 1
-                </button>
-                <button onclick="update('var2')">Variable 2</button>
-                <button onclick="update('var3')">Variable 3</button>
-                <button onclick="update('var4')">Variable 4</button>
+                <button class = "anybutton" onclick="update('greenroofs_per_million')">Green Roofs per Capita</button>
+                <button class = "anybutton" onclick="update('average_cost')">Average Cost</button>
+                <button class = "anybutton" onclick="update('average_year_construction')">Average Year Constructed</button>
+                <button class = "anybutton" onclick="update('avg_cover')">Averge Project Cover</button>
+                <button class = "anybutton" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         </header>
         <div id="map" class="map" ></div>
         <div id="barChart"></div>
         <div id="matrix"> </div>
         <div id="background"></div>
         
-        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
-        <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster-src.js.map"></script>
-        <script type="text/javascript" src="lib/dist/leaflet.markercluster-src.js"></script> -->
-        <script type="text/javascript" src="lib/dist/leaflet.markercluster.js"></script>
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster.js.map"></script> -->
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster.js" -->
-            <!-- Load d3.js -->
-        <script src="https://d3js.org/d3.v4.js"></script>
-        <!-- Add 2 buttons -->
         <script type="text/javascript" src="js/barChart.js"></script>
         <script type="text/javascript" src="data/mygeojson.js"></script>
         <script type="text/javascript" src="data/greenroofsFinal.js"></script>
         <script type="text/javascript" src="data/nyc.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
-        <!-- <script type="text/javascript" src="js/barChart.js"></script> -->
         <script type="text/javascript" src="js/matrix.js" ></script>
-        <script>
-            
-            Matrix({
-                container: "#matrix",
-                start_color: "#74c476",
-                end_color: "#006d2c",
-            });
-            </script>
+        <script type="text/javascript" src="js/map.js"></script>
     </body>
         
 </html> 
