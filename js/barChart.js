@@ -3,12 +3,12 @@
  // Set graph margins and dimensions
 
 // set the dimensions and margins of the graph
-var margin = {top: 45, right: 10, bottom: 50, left: 800},
-    width = 1375 - margin.left - margin.right,
+const margin = {top: 45, right: 10, bottom: 50, left: 830},
+    width = 1400 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#barChart")
+const svg = d3.select("#barChart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -17,16 +17,16 @@ var svg = d3.select("#barChart")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Initialize the X axis
-var x = d3.scaleBand()
+const x = d3.scaleBand()
   .range([ 0, width ])
   .padding(0.2);
-var xAxis = svg.append("g")
+const xAxis = svg.append("g")
   .attr("transform", "translate(0," + height + ")")
 
 // Initialize the Y axis
-var y = d3.scaleLinear()
+const y = d3.scaleLinear()
   .range([ height, 0]);
-var yAxis = svg.append("g")
+const yAxis = svg.append("g")
   .attr("class", "myYaxis")
 
 function titleMaker(selectedVar)
@@ -55,7 +55,7 @@ function update(selectedVar) {
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable u: map data to existing bars
-    var u = svg.selectAll("rect")
+    const u = svg.selectAll("rect")
       .data(data)
 
     // update bars
