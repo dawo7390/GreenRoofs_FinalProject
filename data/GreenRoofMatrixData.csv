@@ -1,61 +1,61 @@
 ﻿group,variable,value,colorValue
-Bronx,lowIncome,78,258
-Bronx,mediumIncome,4,28
-Bronx,highIncome,0,0
+Bronx,Low Income,78,258
+Bronx,Medium Income,4,28
+Bronx,High Income,0,0
 Bronx,Residential,59,184
 Bronx,Commercial,6,16
 Bronx,Public,6,333
 Bronx,Industrial,11,89
-Bronx,averageCost,117047,59
-Bronx,averageSavings,769,161
-Bronx,carbonScore,2675,162
-Bronx,GrArea,3344,161
-Bronx,Cover,29.4,238
-Brooklyn,lowIncome,82,290
-Brooklyn,mediumIncome,34,241
-Brooklyn,highIncome,20,63
+Bronx,Average Cost,117047,59
+Bronx,Average Savings,769,161
+Bronx,Carbon Score,2675,162
+Bronx,Average Area,3344,161
+Bronx,Average Cover,29.4,238
+Brooklyn,Low Income,82,290
+Brooklyn,Medium Income,34,241
+Brooklyn,High Income,20,63
 Brooklyn,Residential,85,265
 Brooklyn,Commercial,11,29
 Brooklyn,Public,6,333
 Brooklyn,Industrial,34,274
-Brooklyn,averageCost,1413030,,708
-Brooklyn,averageSavings,929,195
-Brooklyn,carbonScore,3230,195
-Brooklyn,GrArea,4037,195
-Brooklyn,Cover,21.5,173
-Manhattan,lowIncome,79,279
-Manhattan,mediumIncome,99,702
-Manhattan,highIncome,287,917
+Brooklyn,Average Cost,1413030,,708
+Brooklyn,Average Savings,929,195
+Brooklyn,Carbon Score,3230,195
+Brooklyn,Average Area,4037,195
+Brooklyn,Average Cover,21.5,173
+Manhattan,Low Income,79,279
+Manhattan,Medium Income,99,702
+Manhattan,High Income,287,917
 Manhattan,Residential,158,493
 Manhattan,Commercial,249,664
 Manhattan,Public,4,222
 Manhattan,Industrial,54,435
-Manhattan,averageCost,117692,59
-Manhattan,averageSavings,774,162
-Manhattan,carbonScore,2690,162
-Manhattan,GrArea,3363,162
-Manhattan,Cover,15.2,123
-Queens,lowIncome,41,145
-Queens,mediumIncome,3,21
-Queens,highIncome,6,4
+Manhattan,Average Cost,117692,59
+Manhattan,Average Savings,774,162
+Manhattan,Carbon Score,2690,162
+Manhattan,Average Area,3363,162
+Manhattan,Average Cover,15.2,123
+Queens,Low Income,41,145
+Queens,Medium Income,3,21
+Queens,High Income,6,4
 Queens,Residential,18,56
 Queens,Commercial,6,16
 Queens,Public,2,111
 Queens,Industrial,24,193
-Queens,averageCost,176520,88
-Queens,averageSavings,1160,244
-Queens,carbonScore,4035,244
-Queens,GrArea,5043,244
-Queens,Cover,39.6,320
-StatenIsland,lowIncome,3,11
-StatenIsland,mediumIncome,1,7
-StatenIsland,highIncome,0,0
-StatenIsland,Residential,0,0
-StatenIsland,Commercial,3,8
-StatenIsland,Public,0,0
-StatenIsland,Industrial,1,8
-StatenIsland,averageCost,172065,86
-StatenIsland,averageSavings,1130.7,237
-StatenIsland,carbonScore,3932.8,237
-StatenIsland,GrArea,4916,237
-StatenIsland,Cover,18,146
+Queens,Average Cost,176520,88
+Queens,Average Savings,1160,244
+Queens,Carbon Score,4035,244
+Queens,Average Area,5043,244
+Queens,Average Cover,39.6,320
+Staten Island,Low Income,3,11
+Staten Island,Medium Income,1,7
+Staten Island,High Income,0,0
+Staten Island,Residential,0,0
+Staten Island,Commercial,3,8
+Staten Island,Public,0,0
+Staten Island,Industrial,1,8
+Staten Island,Average Cost,172065,86
+Staten Island,Average Savings,1130.7,237
+Staten Island,Carbon Score,3932.8,237
+Staten Island,Average Area,4916,237
+Staten Island,Average Cover,18,146
