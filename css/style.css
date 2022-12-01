@@ -8,20 +8,28 @@ body{
     width: 100%;
 } 
 header{
-    height: 15%;
+    height: 10%;
     width: 100%;
     fill: green;
     stroke: black;
 }
-/* .anybutton {
-    top:11%;
-    left:10%;
-    width:100px;
+#anybutton {
+    top:10%;
+    width:120px;
     height:40px;
     position: absolute;
     z-index: 2;
-    background: orange; 
-    } */
+    background: rgb(172, 174, 171); 
+    font-size: 10px;
+      font-family: "Roboto Mono", monospace;
+      font-weight: 700;
+    }
+.but1{left:51%;}
+.but2{left:61%;}
+.but3{left:71%;}
+.but4{left:81%;}
+.but5{left:91%;}
+
 .map {
     position: absolute;
     width: 50%;
@@ -62,7 +70,7 @@ header{
     font-size: 12px;
   }
 
-  text {
+  text{
       font-size: 10px;
       font-family: "Roboto Mono", monospace;
       font-weight: 700;

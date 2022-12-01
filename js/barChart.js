@@ -3,7 +3,7 @@
  // Set graph margins and dimensions
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 10, bottom: 50, left: 800},
+var margin = {top: 45, right: 10, bottom: 50, left: 800},
     width = 1375 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
@@ -33,7 +33,7 @@ function titleMaker(selectedVar)
 {
     if(selectedVar = "greenroofs_per_million") {return "Green Roofs per Million People"}
     else if (selectedVar = "average_cost") {return "Average Project Cost ($USD)"}
-    else if (selectedVar = "average_year_construction") {return "Average Year of Building Construction)"}
+    else if (selectedVar = "average_year_construction") {return "Average Building Age (yrs)"}
     else if (selectedVar = "avg_cover") {return "Average Cover (sqft)"}
     else if (selectedVar = "avg_cover_percentile") {return "Average Roof Cover Percentage"}
 };

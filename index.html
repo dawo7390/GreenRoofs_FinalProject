@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <title>Green Roofs NYC</title>
@@ -23,16 +24,16 @@
             <img src="img/greenroofbanner.png" alt = "Title Banner"
                 width= 1410px
                 height = 70px >
-                <button class = "anybutton" onclick="update('greenroofs_per_million')">Green Roofs per Capita</button>
-                <button class = "anybutton" onclick="update('average_cost')">Average Cost</button>
-                <button class = "anybutton" onclick="update('average_year_construction')">Average Year Constructed</button>
-                <button class = "anybutton" onclick="update('avg_cover')">Averge Project Cover</button>
-                <button class = "anybutton" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         </header>
         <div id="map" class="map" ></div>
         <div id="barChart"></div>
+            <button id ="anybutton" class = "but1" onclick="update('greenroofs_per_million')">Green Roofs per Capita</button>
+            <button id = "anybutton" class = "but2" onclick="update('average_cost')">Average Cost</button>
+            <button id = "anybutton" class = "but3" onclick="update('average_year_construction')">Average Building Age (yrs)</button>
+            <button id = "anybutton" class = "but4" onclick="update('avg_cover')">Averge Project Cover</button>
+            <button id = "anybutton" class = "but5" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         <div id="matrix"> </div>
-        <div id="background"></div>
+        <!-- <div id="background"></div> -->
         
         <script type="text/javascript" src="js/barChart.js"></script>
         <script type="text/javascript" src="data/mygeojson.js"></script>
