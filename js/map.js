@@ -23,14 +23,11 @@ function resetHighlight(e) { // reset to default style while off
     var layer = e.target
     layer.setStyle(style_before())
 }
-// function zoomToFeature(e) {      //unused
-//     map.fitBounds(e.target.getBounds());
-// }
+
 function highlightBuroughs(feature, layer) { //controls all highlighting functions
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        // click: zoomToFeature
     });
 }
 var mapFunction = {}; //declares function holder
@@ -81,6 +78,5 @@ window.onload=function(){
     var clusters = L.markerClusterGroup();
     clusters.addLayer(greenLayerGroup);
     map.addLayer(clusters);
-    map.addLayer(nyc)
     map.fitBounds(greenLayerGroup.getBounds());
 };
