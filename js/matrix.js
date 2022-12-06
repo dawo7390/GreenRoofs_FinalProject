@@ -2,7 +2,7 @@
 "use strict"
 
 const marginM = {topM: 50, rightM: 30, bottomM: 20, leftM: 220}, //sets size of svg
-  widthM = 800 - marginM.leftM - marginM.rightM,
+  widthM = 750 - marginM.leftM - marginM.rightM,
   heightM = 350 - marginM.topM - marginM.bottomM;
 
 var svgM = d3.select("#matrix") //selects id and positions the graph

@@ -4,14 +4,12 @@
 function style_before() { //sets style while not hovered over
     return {
         color: "green",
-        opacity: 0.1,
-        fillOpacity: 0.15
+        fillOpacity: 0.15,
     };
 }
 function style_after() { //sets style wile hovered over
     return {
         color: "green",
-        weight: 5,
         fillOpacity: 0.6
     };
 }
@@ -43,14 +41,14 @@ mapFunction.addPopups = function (feature, layer) { //creates popups with site i
   }
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
-mapFunction.pointToCircle = function (feature, latlng) { //makes the maerkers little green circles
+mapFunction.pointToCircle = function (feature, latlng) { //makes the markers little green circles
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "green",
     color: "green",
     weight: 1,
     opacity: 1,
-    fillOpacity: 0.8
+    fillOpacity: 0.8,
   };
   var circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
   return circleMarker;
