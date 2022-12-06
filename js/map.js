@@ -12,7 +12,6 @@ function style_after() { //sets style wile hovered over
     return {
         color: "green",
         weight: 5,
-        stroke: "black",
         fillOpacity: 0.6
     };
 }
@@ -67,8 +66,7 @@ window.onload=function(){
         attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
         }).addTo(map);
     //CREATE BUROUGH HIGHLIGHTS ON MAP
-    var nyc
-    nyc = new L.geoJson(nycjson,{
+    var nyc = new L.geoJson(nycjson,{
         onEachFeature: highlightBuroughs,
         style: style_before
     }).addTo(map);
@@ -83,5 +81,6 @@ window.onload=function(){
     var clusters = L.markerClusterGroup();
     clusters.addLayer(greenLayerGroup);
     map.addLayer(clusters);
+    map.addLayer(nyc)
     map.fitBounds(greenLayerGroup.getBounds());
 };

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <title>Green Roofs NYC</title>
@@ -12,7 +11,6 @@
         <link rel="stylesheet" href="css/style.css">
 
     </head>
-
     <body>
         <!-- <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script>  -->
         <script src="https://d3js.org/d3.v4.js"></script>
@@ -20,21 +18,21 @@
         <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
         <script type="text/javascript" src="lib/dist/leaflet.markercluster.js"></script>
-        <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
         <header>
             <img src="img/greenroofbanner.png" alt = "Title Banner"
                 width= 1410px
                 height = 70px >
         </header>
         <div id="map" class="map" ></div>
+            <button id="lM" onclick="learnMore()">Learn More</button>
         <div id="barChart"></div>
             <button id ="anybutton" class = "but1" onclick="update('greenroofs_per_million')">Green Roofs per Capita</button>
             <button id = "anybutton" class = "but2" onclick="update('average_cost')">Average Cost</button>
-            <button id = "anybutton" class = "but3" onclick="update('average_year_construction')">Average Building Age (yrs)</button>
+            <button id = "anybutton" class = "but3" onclick="update('average_year_construction')">Average Building Age</button>
             <button id = "anybutton" class = "but4" onclick="update('avg_cover')">Averge Project Cover</button>
             <button id = "anybutton" class = "but5" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         <div id="matrix"> </div>
-        <!-- <div id="background"></div> -->
         
         <script type="text/javascript" src="js/barChart.js"></script>
         <script type="text/javascript" src="data/mygeojson.js"></script>

@@ -1,8 +1,8 @@
 // // //D3 MATRIX
 "use strict"
 
-const marginM = {topM: 0, rightM: 10, bottomM: 30, leftM: 830},
-  widthM = 1400 - marginM.leftM - marginM.rightM,
+const marginM = {topM: 30, rightM: 30, bottomM: 20, leftM: 220},
+  widthM = 800 - marginM.leftM - marginM.rightM,
   heightM = 300 - marginM.topM - marginM.bottomM;
 
 
@@ -73,7 +73,7 @@ d3.csv("data/GreenRoofMatrixData.csv", function(data) {
     tooltip
       .html("The exact value of<br>this cell is: " + d.value)
       .style("left", (d3.mouse(this)[0]+70) + "px")
-      .style("top", (d3.mouse(this)[1]) + "px")
+      .style("top", (d3.mouse(this)[1]+20) + "px")
   }
   var mouseleave = function(d) {
     tooltip
@@ -106,10 +106,10 @@ d3.csv("data/GreenRoofMatrixData.csv", function(data) {
 // Add title to graph
 svgM.append("text")
         .attr("x", 0)
-        .attr("y", -50)
+        .attr("y", -10)
         .attr("text-anchor", "left")
         .style("font-size", "22px")
-        .text("A d3.js heatmap");
+        .text("Green Roof Heat Map");
 
 
 

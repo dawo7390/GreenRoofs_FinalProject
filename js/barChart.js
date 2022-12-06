@@ -3,8 +3,8 @@
  // Set graph margins and dimensions
 
 // set the dimensions and margins of the graph
-const margin = {top: 45, right: 10, bottom: 50, left: 830},
-    width = 1400 - margin.left - margin.right,
+const margin = {top: 150, right: 0, bottom: 30, left: 180},
+    width = 800 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -29,22 +29,23 @@ const y = d3.scaleLinear()
 const yAxis = svg.append("g")
   .attr("class", "myYaxis")
 
-function titleMaker(selectedVar)
+function titleMaker(selectedB)
 {
-    if(selectedVar = "greenroofs_per_million") {return "Green Roofs per Million People"}
-    else if (selectedVar = "average_cost") {return "Average Project Cost ($USD)"}
-    else if (selectedVar = "average_year_construction") {return "Average Building Age (yrs)"}
-    else if (selectedVar = "avg_cover") {return "Average Cover (sqft)"}
-    else if (selectedVar = "avg_cover_percentile") {return "Average Roof Cover Percentage"}
+    if(selectedB == "greenroofs_per_million") {return "Green Roofs per Million People"}
+    else if (selectedB == "average_cost") {return "Average Project Cost (USD)"}
+    else if (selectedB == "average_year_construction") {return "Average Building Age (yrs)"}
+    else if (selectedB == "avg_cover") {return "Average Cover (sqft)"}
+    else if (selectedB == "avg_cover_percentile") {return "Average Roof Cover Percentage"}
+    else{ return "error selected b not found"}
 };
-
 
 
 // A function that create / update the plot for a given variable:
 function update(selectedVar) {
-
   // Parse the Data
+//   if(barChartTitle.getElementsByTagName('svg').length) {barChartTitle.remove()}
   d3.csv("data/DataBarchart.csv", function(data) {
+    
 
     // X axis
     x.domain(data.map(function(d) { return d.group; }))
@@ -54,10 +55,10 @@ function update(selectedVar) {
     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
 
+    
     // variable u: map data to existing bars
     const u = svg.selectAll("rect")
       .data(data)
-
     // update bars
     u
       .enter()
@@ -67,18 +68,20 @@ function update(selectedVar) {
       .duration(1000)
         .attr("x", function(d) { return x(d.group); })
         .attr("y", function(d) { return y(d[selectedVar]); })
-        .attr("title", function(d) { return titleMaker(selectedVar); })
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d[selectedVar]); })
         .attr("fill", "#31a354")
 
-    // svg.append("text")
-    //     .attr("x", 100)
-    //     .attr("y", 10)
-    //     .attr("text-anchor", "left")
-    //     .style("font-size", "22px")
-    //     .text(titleMaker);
-    }) 
+    const barChartTitle = svg.append("text")
+        .transition()
+        .duration(1000)
+        .attr("x", 30)
+        .attr("y", -10)
+        .attr("text-anchor", "left")
+        .style("font-size", "22px")
+        .text(titleMaker(selectedVar))
+ })   
+ 
 }
 
 // Initialize plot
