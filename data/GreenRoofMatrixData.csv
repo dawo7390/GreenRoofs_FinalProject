@@ -6,7 +6,7 @@ Bronx,Residential,59,184
 Bronx,Commercial,6,16
 Bronx,Public,6,333
 Bronx,Industrial,11,89
-Bronx,Average Cost,117047,59
+Bronx,Average Cost,117047,161
 Bronx,Average Savings,769,161
 Bronx,Carbon Score,2675,162
 Bronx,Average Area,3344,161
@@ -18,7 +18,7 @@ Brooklyn,Residential,85,265
 Brooklyn,Commercial,11,29
 Brooklyn,Public,6,333
 Brooklyn,Industrial,34,274
-Brooklyn,Average Cost,1413030,708
+Brooklyn,Average Cost,141303,195
 Brooklyn,Average Savings,929,195
 Brooklyn,Carbon Score,3230,195
 Brooklyn,Average Area,4037,195
@@ -30,7 +30,7 @@ Manhattan,Residential,158,493
 Manhattan,Commercial,249,664
 Manhattan,Public,4,222
 Manhattan,Industrial,54,435
-Manhattan,Average Cost,117692,59
+Manhattan,Average Cost,117692,162
 Manhattan,Average Savings,774,162
 Manhattan,Carbon Score,2690,162
 Manhattan,Average Area,3363,162
@@ -42,7 +42,7 @@ Queens,Residential,18,56
 Queens,Commercial,6,16
 Queens,Public,2,111
 Queens,Industrial,24,193
-Queens,Average Cost,176520,88
+Queens,Average Cost,176520,244
 Queens,Average Savings,1160,244
 Queens,Carbon Score,4035,244
 Queens,Average Area,5043,244
@@ -54,7 +54,7 @@ Staten Island,Residential,0,0
 Staten Island,Commercial,3,8
 Staten Island,Public,0,0
 Staten Island,Industrial,1,8
-Staten Island,Average Cost,172065,86
+Staten Island,Average Cost,172065,237
 Staten Island,Average Savings,1130.7,237
 Staten Island,Carbon Score,3932.8,237
 Staten Island,Average Area,4916,237
