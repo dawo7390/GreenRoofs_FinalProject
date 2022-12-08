@@ -10,7 +10,7 @@ function style_before() { //sets style while not hovered over
 function style_after() { //sets style wile hovered over
     return {
         color: "green",
-        fillOpacity: 0.6
+        fillOpacity: 0.6,
     };
 }
 function highlightFeature(e) { // set style while hover over
@@ -48,7 +48,7 @@ function pointToCircle(feature, latlng) { //makes the markers little green circl
     fillColor: "green",
     weight: 1,
     opacity: 1,
-    fillOpacity: 0.8,
+    fillOpacity: 5,
   };
   var circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
   return circleMarker;
@@ -64,8 +64,8 @@ window.onload=function(){
     var nyc = new L.geoJson(nycjson,{
         onEachFeature: highlightBuroughs,
         style: style_before
-    }).addTo(map)
-    
+    });
+    map.addLayer(nyc);
     
     //READ DATA FOR MARKERS
     var greenLayerGroup = L.geoJSON(greenroofgeojson, {
