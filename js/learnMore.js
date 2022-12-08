@@ -38,7 +38,7 @@ w.innerHTML += "<br><font size='-1'><b>    Economy</b></font"
 w.innerHTML += "<br>Improve property values"
 w.innerHTML += "<br>Heavily sought after in the housing market."
 w.innerHTML += "<br>Improve In New York, green roof tax abatement is implemented, so that each square foot of green roof can get a rebate of $5.23, up to $200,000 per project values"
-w.innerHTML += "<br><font size='-1'><b>    Environmental</b></font"
+w.innerHTML += "<br><font size='-1'><b>Environmental</b></font"
 w.innerHTML += "<br>Kilograms of CO2 per sq ft/ per year"
 w.innerHTML += "<br>Help minimize impervious surfaces in cities, which helps mitigate the urban heat island effect and improve stormwater management and flooding resilience."
 // Bar Chart Instructions
@@ -54,10 +54,10 @@ w.innerHTML += "<br> - Move your mouse over any of the cells to see its value"
 
 // Map Instructions
 w.innerHTML += "<br><br><font size='+1'><b>Map</b></font"
-w.innerHTML += "<br> - To zoom in and out, use the control panel in the upper left corner."
+w.innerHTML += "<br> - To zoom in and out, use the control panel in the upper left corner. Double clicking on the map will also zoom in to that area."
 w.innerHTML += "<br> - To zoom in on specific clusters, click on the clusters"
 w.innerHTML += "<br> - To see information about specific green roofs, click on the green circles. "
-w.innerHTML += "<br> - You can rest teh map to the default position and zoom level by clicking the 'Reset Map' button in the upper right corner.  "
+w.innerHTML += "<br> - You can reset the map to the default position and zoom level by clicking the 'Reset Map' button in the upper right corner.  "
 
 
 // Attribution: link to video

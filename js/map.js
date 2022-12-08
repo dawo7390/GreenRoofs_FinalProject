@@ -4,20 +4,24 @@
 function style_before() { //sets style while not hovered over
     return {
         color: "green",
-        fillOpacity: 0.15,
-        zIndex: 999
+        weight: 2,
+        opacity: 0.1,
+        stroke: 5,
+        fillOpacity: 0.15
     };
-};
+}
 function style_after() { //sets style wile hovered over
     return {
         color: "green",
-        fillOpacity: 0.6,
-        zIndex: 999
+        weight: 5,
+        stroke: 5,
+        fillOpacity: 0.6
     };
 }
 function highlightFeature(e) { // set style while hover over
     var layer = e.target;
     layer.setStyle(style_after());
+
 };
 function resetHighlight(e) { // reset to default style while off
     var layer = e.target;
@@ -44,13 +48,12 @@ function addPopups(feature, layer) { //creates popups with site info
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
 function pointToCircle(feature, latlng) { //makes the markers little green circles
-
-  var myIcon = L.icon({
-    iconUrl: "img/greenMarkers.png",
-    iconSize: [16, 16],
-});
-  var markerCircle = L.marker(latlng, {icon: myIcon});
-  return markerCircle;
+    var myIcon = L.icon({
+        iconUrl: "img/greenMarkers.png",
+        iconSize: [16, 16],
+    });
+    var markerCircle = L.marker(latlng, {icon: myIcon});
+    return markerCircle;
 };
 window.onload=function(){
     //CREATE BASEMAP
@@ -63,7 +66,8 @@ window.onload=function(){
     var nyc = new L.geoJson(nycjson,{
         onEachFeature: highlightBuroughs,
         style: style_before,
-    }).addTo(map)
+    })
+    map.addLayer(nyc)
     
     //READ DATA FOR MARKERS
     var greenLayerGroup = L.geoJSON(greenroofgeojson, {
