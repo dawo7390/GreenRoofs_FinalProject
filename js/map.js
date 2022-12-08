@@ -6,7 +6,7 @@ function style_before() { //sets style while not hovered over
         color: "green",
         fillOpacity: 0.15,
     };
-}
+};
 function style_after() { //sets style wile hovered over
     return {
         color: "green",
@@ -15,19 +15,20 @@ function style_after() { //sets style wile hovered over
 }
 function highlightFeature(e) { // set style while hover over
     var layer = e.target;
-    layer.setStyle(style_after())
-}
+    layer.setStyle(style_after());
+};
 function resetHighlight(e) { // reset to default style while off
-    var layer = e.target
-    layer.setStyle(style_before())
-}
+    var layer = e.target;
+    layer.setStyle(style_before());
+};
 
 function highlightBuroughs(feature, layer) { //controls all highlighting functions
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
     });
-}
+};
+
 var mapFunction = {}; //declares function holder
 //MAKE POPUPS AND ADD TEXT
 mapFunction.addPopups = function (feature, layer) { //creates popups with site info
@@ -38,14 +39,13 @@ mapFunction.addPopups = function (feature, layer) { //creates popups with site i
                     "<br><b>Percentage Green Roof Cover: </b>"+ ((((feature.properties.gr_area/feature.properties.bldg_area)* 100) / 100).toFixed(2)*100)+"%"+"</br>"+
                     "<b>Total Green Roof Area: </b>"+parseInt(feature.properties.gr_area)+" sq/ft"+
                     "<br><b> Roof Height: </b>"+parseInt(feature.properties.heightroof)+" ft"+"</br>")
-  }
+  };
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
-mapFunction.pointToCircle = function (feature, latlng) { //makes the markers little green circles
+function pointToCircle(feature, latlng) { //makes the markers little green circles
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "green",
-    color: "green",
     weight: 1,
     opacity: 1,
     fillOpacity: 0.8,
@@ -64,17 +64,33 @@ window.onload=function(){
     var nyc = new L.geoJson(nycjson,{
         onEachFeature: highlightBuroughs,
         style: style_before
-    }).addTo(map);
+    }).addTo(map)
+    
     
     //READ DATA FOR MARKERS
     var greenLayerGroup = L.geoJSON(greenroofgeojson, {
         onEachFeature: mapFunction.addPopups,
-        pointToLayer: mapFunction.pointToCircle
+        pointToLayer: pointToCircle
     });
-
     //CREATE CLUSTERING EFFECT
     var clusters = L.markerClusterGroup();
     clusters.addLayer(greenLayerGroup);
     map.addLayer(clusters);
     map.fitBounds(greenLayerGroup.getBounds());
+
+     //Reset Map
+     (function() {
+        var control = new L.Control({position:'topright'});
+        control.onAdd = function(map) {
+                var azoom = L.DomUtil.create('button','resetzoom');
+                azoom.innerHTML = "Reset Zoom";
+                L.DomEvent
+                    .disableClickPropagation(azoom)
+                    .addListener(azoom, 'click', function() {
+                        map.setView([40.69, -73.97], 11);
+                    },azoom);
+                return azoom;
+            };
+        return control;
+    }()).addTo(map);
 };

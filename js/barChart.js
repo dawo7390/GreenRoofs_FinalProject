@@ -68,8 +68,8 @@ function update(selectedVar) {
  })   
  const barChartTitle = svg.append("text") //add chart title
  .attr("id","barChartTitle")
- .transition()
- .duration(1000)
+//  .transition()
+//  .duration(1000)
  .attr("x", 30)
  .attr("y", -10)
  .attr("text-anchor", "left")

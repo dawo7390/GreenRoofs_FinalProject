@@ -15,14 +15,8 @@ header{
     fill: green;
     stroke: black;
 }
-#lM
-{
-    position: absolute;
-    top: 810px;
-    
-}
 #anybutton {
-    top:15%;
+    top:13%;
     width:120px;
     height:40px;
     position: absolute;
@@ -114,3 +108,54 @@ header{
       stroke: rgb(255, 255, 255);
       shape-rendering: crispEdges;
     }
+ 
+  
+  #helpIcon {
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    padding: 1vh;
+    background-color: rgb(111, 189, 111);
+    border: medium solid rgba(255, 255, 255, 0.693);
+    top: 3%;
+    right: 1%;
+    font: 10px sans-serif;
+    font-weight: Bold;
+    z-index: 2;
+  }
+  
+  #helpWindow {
+    position: absolute;
+    text-align: Left;
+    width: 94%;
+    height: 81%;
+    padding: 1vh;
+    background-color:rgb(172, 199, 158); ;
+    border: medium solid rgb(255, 255, 255);
+    border-width: 20px;
+    color: black;
+    top: 10%;
+    left: 1%;
+    font: 15px sans-serif;
+    z-index: -2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  #backdrop {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  #mapReset
+  {
+    position: absolute;
+    top:11%; 
+    left: 1%;
+    height: 25px;
+    width: 100px;
+
+  }

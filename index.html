@@ -5,23 +5,22 @@
         <title>Green Roofs NYC</title>
         <!--put your external stylesheet links here-->
         <link rel = "stylesheet" href="lib/leaflet/leaflet.css">
-        <link rel = "stylesheet" href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' />
-        <link rel = "stylesheet" href="lib/dist/MarkerCluster.css">
-        <link rel = "stylesheet" href="lib/dist/MarkerCluster.Default.css">
+        <link rel = "stylesheet" href="lib/mapbox-gl.css">
+        <link rel = "stylesheet" href="lib/leaflet/dist/MarkerCluster.css">
+        <link rel = "stylesheet" href="lib/leaflet/dist/MarkerCluster.Default.css">
         <link rel = "stylesheet" href="css/style.css">
-
     </head>
     <body>
         <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
         <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
-        <script src="https://d3js.org/d3.v4.js"></script>
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
-        <script type="text/javascript" src="lib/dist/leaflet.markercluster.js"></script>
-        <script src="https://d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+        <script type="text/javascript" src="lib/d3-v4.js"></script>
+        <script type="text/javascript" src="lib/mapbox-gl.js"></script>
+        <script type="text/javascript" src="lib/leaflet/dist/leaflet.markercluster.js"></script>
+        <script type="text/javascript" src="lib/d3-scale-chromatic.js"></script>
         <header>
             <img src="img/greenroofbanner.png" alt = "Title Banner"
                 width= 120%
-                height = 70% >
+                height = 70%>
         </header>
         <div id="map" class="map" ></div>
         <div id="barChart"></div>
@@ -31,13 +30,17 @@
             <button id = "anybutton" class = "but4" onclick="update('avg_cover')">Averge Project Cover</button>
             <button id = "anybutton" class = "but5" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         <div id="matrix"> </div>
-        
+        <div id="helpIcon">Learn More</div>
+        <div id="helpWindow"></div>
+        <div id="backdrop"></div>
+        <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/barChart.js"></script>
         <script type="text/javascript" src="data/mygeojson.js"></script>
         <script type="text/javascript" src="data/greenroofsFinal.js"></script>
         <script type="text/javascript" src="data/nyc.js"></script>
         <script type="text/javascript" src="js/matrix.js" ></script>
-        <script type="text/javascript" src="js/map.js"></script>
-    </body>
+        <script type="text/javascript" src="js/learnMore.js"></script>
         
+
+    </body> 
 </html> 
