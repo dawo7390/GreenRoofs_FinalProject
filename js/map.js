@@ -5,12 +5,14 @@ function style_before() { //sets style while not hovered over
     return {
         color: "green",
         fillOpacity: 0.15,
+        zIndex: 999
     };
 };
 function style_after() { //sets style wile hovered over
     return {
         color: "green",
         fillOpacity: 0.6,
+        zIndex: 999
     };
 }
 function highlightFeature(e) { // set style while hover over
@@ -29,9 +31,8 @@ function highlightBuroughs(feature, layer) { //controls all highlighting functio
     });
 };
 
-var mapFunction = {}; //declares function holder
 //MAKE POPUPS AND ADD TEXT
-mapFunction.addPopups = function (feature, layer) { //creates popups with site info
+function addPopups(feature, layer) { //creates popups with site info
   if (feature.properties && feature.properties.address) {
     layer.bindPopup("<b>Address: </b>" + feature.properties.address+ 
                     "<br><b>Cost Estimate: </b> $"+parseInt(feature.properties.COST_ESTIMATE)+"</br>"+ 
@@ -43,34 +44,31 @@ mapFunction.addPopups = function (feature, layer) { //creates popups with site i
 };
 //MAKES MARKERS SMALL GREEN CIRCLES
 function pointToCircle(feature, latlng) { //makes the markers little green circles
-  var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "green",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 5,
-  };
-  var circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
-  return circleMarker;
+
+  var myIcon = L.icon({
+    iconUrl: "img/greenMarkers.png",
+    iconSize: [16, 16],
+});
+  var markerCircle = L.marker(latlng, {icon: myIcon});
+  return markerCircle;
 };
 window.onload=function(){
     //CREATE BASEMAP
     let map = L.map('map').setView([40.69, -73.97], 10);
     var NYCmap = L.tileLayer('https://api.mapbox.com/styles/v1/dawo7390/cl9zygbct000114ofk5m565pk/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGF3bzczOTAiLCJhIjoiY2w3cXIweXJjMDdpNzQxbzB5Zjdhajc4YiJ9.qPWM7J5wt_NNdCy-NxRuJw', {
         maxZoom: 18, minZoom: 10,
-        attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
-        }).addTo(map);
+        attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>',
+    }).addTo(map);
     //CREATE BUROUGH HIGHLIGHTS ON MAP
     var nyc = new L.geoJson(nycjson,{
         onEachFeature: highlightBuroughs,
-        style: style_before
-    });
-    map.addLayer(nyc);
+        style: style_before,
+    }).addTo(map)
     
     //READ DATA FOR MARKERS
     var greenLayerGroup = L.geoJSON(greenroofgeojson, {
-        onEachFeature: mapFunction.addPopups,
-        pointToLayer: pointToCircle
+        onEachFeature: addPopups,
+        pointToLayer: pointToCircle,
     });
     //CREATE CLUSTERING EFFECT
     var clusters = L.markerClusterGroup();
@@ -78,14 +76,13 @@ window.onload=function(){
     map.addLayer(clusters);
     map.fitBounds(greenLayerGroup.getBounds());
 
-     //Reset Map
+     //Reset Zoom and Position of map
      (function() {
         var control = new L.Control({position:'topright'});
         control.onAdd = function(map) {
                 var azoom = L.DomUtil.create('button','resetzoom');
                 azoom.innerHTML = "Reset Zoom";
                 L.DomEvent
-                    .disableClickPropagation(azoom)
                     .addListener(azoom, 'click', function() {
                         map.setView([40.69, -73.97], 11);
                     },azoom);

@@ -9,7 +9,7 @@ const wClose = document.getElementById("helpWindowClose");
 let isOpen = false;
 
 // Create an event listener to check if the user has clicked on learn more
-helpIcon.addEventListener("click", function () {
+i.addEventListener("click", function () {
     // If the prompt was open, close it by changing the icon, 
     //      moving the promp below the background, and setting isOpen as false
     if (isOpen === true) {
@@ -61,6 +61,6 @@ w.innerHTML += "<br> - You can rest teh map to the default position and zoom lev
 
 
 // Attribution: link to video
-w.innerHTML += "<br><br> For more explanation about the app, check out this <a href= 'https://www.colorado.edu/geography/morteza-karimzadeh' target='_blank'>video</a>."
+w.innerHTML += "<br><br> For more explanation about the app, check out this <a href= 'https://youtu.be/3S8f-cv-6DM' target='_blank'>video</a>."
 w.innerHTML += "<br><a href= 'https://d3-graph-gallery.com/graph/barplot_button_data_csv.html' target='_blank'>Barchart</a> and <a href= 'https://d3-graph-gallery.com/graph/heatmap_style.html' target='_blank'>Heatmap</a> adapted from D3." 
 w.innerHTML += "<br> Data Source: <a href= 'https://zenodo.org/record/1469674#.Y5GBHezMI-R' target='_blank'> Tregalia et. al. 2018</a>." 
