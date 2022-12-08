@@ -88,6 +88,12 @@ header{
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;
     }
+    /* line,
+    path {
+      fill: none;
+      stroke: rgb(255, 255, 255);
+      shape-rendering: crispEdges;
+    } */
   #helpIcon {
     position: absolute;
     text-align: center;

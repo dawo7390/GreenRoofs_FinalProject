@@ -41,6 +41,9 @@ w.innerHTML += "<br>Improve In New York, green roof tax abatement is implemented
 w.innerHTML += "<br><font size='-1'><b>Environmental</b></font"
 w.innerHTML += "<br>Kilograms of CO2 per sq ft/ per year"
 w.innerHTML += "<br>Help minimize impervious surfaces in cities, which helps mitigate the urban heat island effect and improve stormwater management and flooding resilience."
+w.innerHTML += "<br><font size='-1'><b>Human Health</b></font"
+w.innerHTML += "<br>Green Roofs sequester carbon dioxide, and help improve air quality"
+w.innerHTML += "<br>Access to green spaces has shown to be beneficial to physical and mental health"
 // Bar Chart Instructions
 w.innerHTML += "<br><br><font size='+1'><b>Bar Chart</b></font"
 w.innerHTML += "<br>The top graph is a <b>Bar Chart."
@@ -56,7 +59,7 @@ w.innerHTML += "<br> - Move your mouse over any of the cells to see its value"
 w.innerHTML += "<br><br><font size='+1'><b>Map</b></font"
 w.innerHTML += "<br> - To zoom in and out, use the control panel in the upper left corner. Double clicking on the map will also zoom in to that area."
 w.innerHTML += "<br> - To zoom in on specific clusters, click on the clusters"
-w.innerHTML += "<br> - To see information about specific green roofs, click on the green circles. "
+w.innerHTML += "<br> - To reveal information on each green roof such as  address, cost estimate, roof-height and income-bracket, click on the green circles. "
 w.innerHTML += "<br> - You can reset the map to the default position and zoom level by clicking the 'Reset Map' button in the upper right corner.  "
 
 

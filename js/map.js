@@ -21,8 +21,8 @@ function style_after() { //sets style wile hovered over
 function highlightFeature(e) { // set style while hover over
     var layer = e.target;
     layer.setStyle(style_after());
-
 };
+
 function resetHighlight(e) { // reset to default style while off
     var layer = e.target;
     layer.setStyle(style_before());
