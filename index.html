@@ -1,61 +1,51 @@
+<!-- ********************************************************************** -->
+<!-- Link to Video, Code Attributions, Instrcutions for the App, and other 
+    information is available by cliking the "Learn More" button in the top 
+    right corner of the website-->
+<!-- ********************************************************************** -->
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <title>Green Roofs NYC</title>
         <!--put your external stylesheet links here-->
-        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
-        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.css' rel='stylesheet' />
-        <link rel ="stylesheet" href="lib/dist/MarkerCluster.css">
-        <link rel ="stylesheet" href="lib/dist/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="css/style.css">
-
+        <link rel = "stylesheet" href="lib/leaflet/leaflet.css">
+        <link rel = "stylesheet" href="lib/mapbox-gl.css">
+        <link rel = "stylesheet" href="lib/leaflet/dist/MarkerCluster.css">
+        <link rel = "stylesheet" href="lib/leaflet/dist/MarkerCluster.Default.css">
+        <link rel = "stylesheet" href="css/style.css">
     </head>
-
     <body>
-        <script src="https://d3js.org/d3.v2.min.js?2.8.1"></script> 
+        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
+        <script type="text/javascript" src="lib/d3-v4.js"></script>
+        <script type="text/javascript" src="lib/mapbox-gl.js"></script>
+        <script type="text/javascript" src="lib/leaflet/dist/leaflet.markercluster.js"></script>
+        <script type="text/javascript" src="lib/d3-scale-chromatic.js"></script>
         <header>
             <img src="img/greenroofbanner.png" alt = "Title Banner"
-                width= 1410px
-                height = 70px >
-                <button onclick="update('var1')">Variable 1
-                </button>
-                <button onclick="update('var2')">Variable 2</button>
-                <button onclick="update('var3')">Variable 3</button>
-                <button onclick="update('var4')">Variable 4</button>
+                width= 120%
+                height = 70%>
         </header>
         <div id="map" class="map" ></div>
         <div id="barChart"></div>
+            <button id = "anybutton" class = "but1" onclick="update('greenroofs_per_million')">Green Roofs per Capita</button>
+            <button id = "anybutton" class = "but2" onclick="update('average_cost')">Average Cost</button>
+            <button id = "anybutton" class = "but3" onclick="update('average_year_construction')">Average Building Age</button>
+            <button id = "anybutton" class = "but4" onclick="update('avg_cover')">Averge Project Cover</button>
+            <button id = "anybutton" class = "but5" onclick="update('avg_cover_percentile')">Average Percentage Covered</button>
         <div id="matrix"> </div>
-        <div id="background"></div>
-        
-        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
-        <script type="text/javascript" src="lib/leaflet/leaflet.js"></script>
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster-src.js.map"></script>
-        <script type="text/javascript" src="lib/dist/leaflet.markercluster-src.js"></script> -->
-        <script type="text/javascript" src="lib/dist/leaflet.markercluster.js"></script>
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster.js.map"></script> -->
-        <!-- <script type="text/javascript" src="lib/dist/leaflet.markercluster.js" -->
-            <!-- Load d3.js -->
-        <script src="https://d3js.org/d3.v4.js"></script>
-        <!-- Add 2 buttons -->
+        <div id="helpIcon">Learn More</div>
+        <div id="helpWindow"></div>
+        <div id="backdrop"></div>
+        <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript" src="js/barChart.js"></script>
         <script type="text/javascript" src="data/mygeojson.js"></script>
         <script type="text/javascript" src="data/greenroofsFinal.js"></script>
         <script type="text/javascript" src="data/nyc.js"></script>
-        <script type="text/javascript" src="js/map.js"></script>
-        <!-- <script type="text/javascript" src="js/barChart.js"></script> -->
         <script type="text/javascript" src="js/matrix.js" ></script>
-        <script>
-            
-            Matrix({
-                container: "#matrix",
-                start_color: "#74c476",
-                end_color: "#006d2c",
-            });
-            </script>
-    </body>
+        <script type="text/javascript" src="js/learnMore.js"></script>
         
+
+    </body> 
 </html> 

@@ -3,12 +3,12 @@
  // Set graph margins and dimensions
 
 // set the dimensions and margins of the graph
-var margin = {top: 20, right: 10, bottom: 50, left: 800},
-    width = 1375 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+const margin = {top: 150, right: 0, bottom: 30, left: 180},
+    width = 750 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#barChart")
+const svg = d3.select("#barChart")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -17,37 +17,42 @@ var svg = d3.select("#barChart")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Initialize the X axis
-var x = d3.scaleBand()
+const x = d3.scaleBand()
   .range([ 0, width ])
   .padding(0.2);
-var xAxis = svg.append("g")
+const xAxis = svg.append("g")
   .attr("transform", "translate(0," + height + ")")
 
 // Initialize the Y axis
-var y = d3.scaleLinear()
+const y = d3.scaleLinear()
   .range([ height, 0]);
-var yAxis = svg.append("g")
+const yAxis = svg.append("g")
   .attr("class", "myYaxis")
 
-
+function titleMaker(selectedB)
+{
+    if(selectedB == "greenroofs_per_million") {return "Green Roofs per Million People"}
+    else if (selectedB == "average_cost") {return "Average Project Cost (USD)"}
+    else if (selectedB == "average_year_construction") {return "Average Building Age (yrs)"}
+    else if (selectedB == "avg_cover") {return "Average Cover (sqft)"}
+    else if (selectedB == "avg_cover_percentile") {return "Average Roof Cover Percentage"}
+    else{ return "error selected b not found"}
+};
 // A function that create / update the plot for a given variable:
 function update(selectedVar) {
-
   // Parse the Data
-  d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/barplot_change_data.csv", function(data) {
-
+    const bctitleremover = svg.selectAll("#barChartTitle").remove()
+    
+  d3.csv("data/DataBarchart.csv", function(data) {
     // X axis
     x.domain(data.map(function(d) { return d.group; }))
     xAxis.transition().duration(1000).call(d3.axisBottom(x))
-
     // Add Y axis
     y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
     yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
     // variable u: map data to existing bars
-    var u = svg.selectAll("rect")
+    const u = svg.selectAll("rect")
       .data(data)
-
     // update bars
     u
       .enter()
@@ -60,9 +65,17 @@ function update(selectedVar) {
         .attr("width", x.bandwidth())
         .attr("height", function(d) { return height - y(d[selectedVar]); })
         .attr("fill", "#31a354")
-  })
-
+ })   
+ const barChartTitle = svg.append("text") //add chart title
+ .attr("id","barChartTitle")
+//  .transition()
+//  .duration(1000)
+ .attr("x", 30)
+ .attr("y", -10)
+ .attr("text-anchor", "left")
+ .style("font-size", "22px")
+ .text(titleMaker(selectedVar))
 }
 
 // Initialize plot
-update('var1')
+update('greenroofs_per_million')

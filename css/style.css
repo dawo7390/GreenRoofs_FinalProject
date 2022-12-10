@@ -1,71 +1,143 @@
-html
-{
+html{
     height: 100%;
     width: 100%;
 } 
 body{
     height: 100%;
     width: 100%;
+    
 } 
 header{
+    position: absolute;
     height: 15%;
-    width: 80%;
+    width: 95%;
     fill: green;
     stroke: black;
 }
-button
-{
-    
-}
+#anybutton {
+    top:13%;
+    width:120px;
+    height:40px;
+    position: absolute;
+    z-index: 2;
+    background: rgb(172, 199, 158); 
+    font-size: 10px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 700;
+    }
+.but1{left:51%;}
+.but2{left:61%;}
+.but3{left:71%;}
+.but4{left:81%;}
+.but5{left:91%;}
 .map {
     position: absolute;
+    top: 15%;
     width: 50%;
-    height: 95%;
-}
-.barChart{
-    position: absolute;
-        top: 10px; left: 500px;
-    width: 100%;
     height: 100%;
 }
-
+#barChart{
+    position: absolute;
+        top: 5%; left: 47%;
+    width: 50%;
+    height: 50%;
+}
+#matrix{
+    position: absolute;
+        top: 70%; left: 47%;
+    width: 50%;
+    height: 50%;
+}
+.tooltip{
+    position: absolute;
+        bottom: 0px; left: 0px;
+    height: 40px;
+    width: 130px;
+}
+.bcTitle{
+    position: absolute;
+        top: 0px; right: 300px;
+    height: 20px;
+    width: 100px
+    
+}
   .background {
     fill: #eee;
     pointer-events: all;
   }
-  
   .map-layer {
     fill: #fff;
     stroke: #aaa;
   }
-  
   .effect-layer{
     pointer-events:none;
   }
-  
   text{
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 300;
   }
-  
   text.big-text{
     font-size: 30px;
     font-weight: 400;
   }
-  
   .effect-layer text, text.dummy-text{
     font-size: 12px;
   }
-
-  text {
+  text{
       font-size: 10px;
-      font-family: "Roboto Mono", monospace;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       font-weight: 700;
     }
-    
-    line,
+    /* line,
     path {
       fill: none;
       stroke: rgb(255, 255, 255);
       shape-rendering: crispEdges;
-    }
+    } */
+  #helpIcon {
+    position: absolute;
+    text-align: center;
+    width: 40px;
+    padding: 1vh;
+    background-color: rgb(172, 199, 158);
+    border: medium solid rgba(255, 255, 255, 0.294);
+    top: 3%;
+    right: 1%;
+    font: 10px sans-serif;
+    font-weight: Bold;
+    z-index: 2;
+  }
+  #helpWindow {
+    position: absolute;
+    text-align: Left;
+    width: 94%;
+    height: 96%;
+    padding: 1vh;
+    background-color:rgb(172, 199, 158); ;
+    border: medium solid rgb(255, 255, 255);
+    border-width: 20px;
+    color: black;
+    top: 10%;
+    left: 1%;
+    font: 15px sans-serif;
+    z-index: -2;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  #backdrop {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 130%;
+    z-index: -1;
+  }
+  #mapReset{
+    position: absolute;
+    top:11%; 
+    left: 1%;
+    height: 25px;
+    width: 100px;
+
+  }
+ 

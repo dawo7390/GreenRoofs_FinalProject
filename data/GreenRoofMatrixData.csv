@@ -1,6 +1,60 @@
-﻿Borough,lowIncome,mediumIncome,highIncome,Residential,Commercial,Public,Industrial,averageCost,averageSavings,carbonScore,GrArea,Cover
-Bronx,78,4,0,59,6,6,11,117047,769,2675,3344,29.4
-Brooklyn,82,34,20,85,11,6,34,1413030,929,3230,4037,21.5
-Manhattan,79,99,287,158,249,4,54,117692,774,2690,3363,15.2
-Staten Island,3,1,0,0,3,0,1,172065,1130.7,3932.8,4916,18
-Queens,41,3,6,18,6,2,24,176520,1160,4035,5043,39.6
+﻿group,variable,value,colorValue
+BBronx,Low Income,78,54.27974948
+Bronx,Medium Income,4,2.783576896
+Bronx,High Income,0,0
+Bronx,Residential,59,80.05427408
+Bronx,Commercial,6,8.141112619
+Bronx,Public,6,8.141112619
+Bronx,Industrial,11,14.92537313
+Bronx,Average Cost,117047,161
+Bronx,Average Savings,769,161
+Bronx,Carbon Score,2675,162
+Bronx,Average Area,3344,161
+Bronx,Average Cover,29.4,238
+Brooklyn,Low Income,82,57.06332637
+Brooklyn,Medium Income,34,23.66040362
+Brooklyn,High Income,20,13.91788448
+Brooklyn,Residential,85,115.3324288
+Brooklyn,Commercial,11,14.92537313
+Brooklyn,Public,6,8.141112619
+Brooklyn,Industrial,34,46.13297151
+Brooklyn,Average Cost,141303,195
+Brooklyn,Average Savings,929,195
+Brooklyn,Carbon Score,3230,195
+Brooklyn,Average Area,4037,195
+Brooklyn,Average Cover,21.5,173
+Manhattan,Low Income,79,54.9756437
+Manhattan,Medium Income,99,68.89352818
+Manhattan,High Income,287,199.7216423
+Manhattan,Residential,158,214.3826323
+Manhattan,Commercial,249,337.8561737
+Manhattan,Public,4,5.427408412
+Manhattan,Industrial,54,73.27001357
+Manhattan,Average Cost,117692,162
+Manhattan,Average Savings,774,162
+Manhattan,Carbon Score,2690,162
+Manhattan,Average Area,3363,162
+Manhattan,Average Cover,15.2,123
+Queens,Low Income,41,28.53166319
+Queens,Medium Income,3,2.087682672
+Queens,High Income,6,4.175365344
+Queens,Residential,18,24.42333786
+Queens,Commercial,6,8.141112619
+Queens,Public,2,2.713704206
+Queens,Industrial,24,32.56445047
+Queens,Average Cost,176520,244
+Queens,Average Savings,1160,244
+Queens,Carbon Score,4035,244
+Queens,Average Area,5043,244
+Queens,Average Cover,39.6,320
+Staten Island,Low Income,3,2.087682672
+Staten Island,Medium Income,1,2.087682672
+Staten Island,High Income,0,0
+Staten Island,Residential,0,0
+Staten Island,Commercial,3,4.070556309
+Staten Island,Public,0,0
+Staten Island,Industrial,1,1.356852103
+Staten Island,Average Savings,1130.7,237
+Staten Island,Carbon Score,3932.8,237
+Staten Island,Average Area,4916,237
+Staten Island,Average Cover,18,146
