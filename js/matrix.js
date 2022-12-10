@@ -44,7 +44,7 @@ d3.csv("data/GreenRoofMatrixData.csv", function(data) {
   // Build color scale
   var myColor = d3.scaleSequential()
     .interpolator(d3.interpolateGreens)
-    .domain([1,700])
+    .domain([1,300])
 
   // create a tooltip
   var tooltip = d3.select("#matrix")

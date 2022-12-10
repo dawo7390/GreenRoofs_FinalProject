@@ -111,7 +111,7 @@ header{
     position: absolute;
     text-align: Left;
     width: 94%;
-    height: 85%;
+    height: 96%;
     padding: 1vh;
     background-color:rgb(172, 199, 158); ;
     border: medium solid rgb(255, 255, 255);
@@ -129,7 +129,7 @@ header{
     top: 0%;
     left: 0%;
     width: 100%;
-    height: 100%;
+    height: 130%;
     z-index: -1;
   }
   #mapReset{
